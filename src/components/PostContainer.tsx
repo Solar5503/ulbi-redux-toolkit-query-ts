@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { IPost } from '../models/IPost';
 import { postAPI } from '../services/PostService';
 import PostItem from './PostItem';
 
 const PostContainer = () => {
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(100);
   const {
     data: posts,
     error,
@@ -13,6 +14,10 @@ const PostContainer = () => {
     limit
     // { pollingInterval: 1000 }
   );
+  const [createPost, { error: createError, isLoading: isCreateLoading }] =
+    postAPI.useCreatePostMutation();
+  const [updatePost, {}] = postAPI.useUpdatePostMutation();
+  const [deletePost, {}] = postAPI.useDeletePostMutation();
 
   useEffect(() => {
     // setTimeout(() => {
@@ -20,14 +25,31 @@ const PostContainer = () => {
     // }, 2000);
   }, []);
 
+  const handleCreate = async () => {
+    const title = prompt();
+    await createPost({ title, body: title } as IPost);
+  };
+  const handleRemove = (post: IPost) => {
+    deletePost(post);
+  };
+  const handleUpdate = (post: IPost) => {
+    updatePost(post);
+  };
+
   return (
     <div>
       <div className="post__list">
-        <button onClick={() => refetch()}>REFETCH</button>
+        {/* <button onClick={() => refetch()}>REFETCH</button> */}
+        <button onClick={handleCreate}>Add new post</button>
         {isLoading && <h1>Идет загрузка...</h1>}
         {error && <h1>Произошла ошибка при загрузке постов!</h1>}
         {posts?.map((post) => (
-          <PostItem post={post} key={post.id} />
+          <PostItem
+            post={post}
+            key={post.id}
+            remove={handleRemove}
+            update={handleUpdate}
+          />
         ))}
       </div>
     </div>
