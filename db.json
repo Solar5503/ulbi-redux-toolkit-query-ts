@@ -12,7 +12,7 @@
     },
     {
       "id": 4,
-      "title": "json-server4",
+      "title": "привет!",
       "author": "typicode"
     },
     {
@@ -41,11 +41,6 @@
       "author": "typicode"
     },
     {
-      "title": "йцкййк",
-      "body": "йцкййк",
-      "id": 13
-    },
-    {
       "title": "енге",
       "body": "енге",
       "id": 15
@@ -54,6 +49,11 @@
       "title": "Сегодня",
       "body": "Сегодня",
       "id": 16
+    },
+    {
+      "title": "Чао",
+      "body": "Чао",
+      "id": 17
     }
   ],
   "comments": [],
