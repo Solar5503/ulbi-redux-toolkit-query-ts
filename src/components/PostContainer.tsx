@@ -27,13 +27,13 @@ const PostContainer = () => {
 
   const handleCreate = async () => {
     const title = prompt();
-    await createPost({ title, body: title } as IPost);
+    await createPost({ title, body: title } as IPost).unwrap();
   };
-  const handleRemove = (post: IPost) => {
-    deletePost(post);
+  const handleRemove = async (post: IPost) => {
+    await deletePost(post.id).unwrap();
   };
-  const handleUpdate = (post: IPost) => {
-    updatePost(post);
+  const handleUpdate = async (post: IPost) => {
+    await updatePost(post).unwrap();
   };
 
   return (

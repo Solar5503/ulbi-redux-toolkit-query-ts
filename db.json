@@ -22,17 +22,12 @@
     },
     {
       "id": 7,
-      "title": "Тест2",
+      "title": "Ntcn77",
       "author": "typicode"
     },
     {
       "id": 8,
       "title": "json-server8",
-      "author": "typicode"
-    },
-    {
-      "id": 9,
-      "title": "json-server9",
       "author": "typicode"
     },
     {
@@ -54,6 +49,11 @@
       "title": "Чао",
       "body": "Чао",
       "id": 17
+    },
+    {
+      "title": "qweqe",
+      "body": "qweqe",
+      "id": 18
     }
   ],
   "comments": [],
